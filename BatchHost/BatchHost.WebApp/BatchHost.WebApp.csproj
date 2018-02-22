@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BatchHost.Service\BatchHost.Service.csproj" />
+    <ProjectReference Include="..\BatchHost.Service\BatchHost.BatchInterface.csproj" />
   </ItemGroup>
 
 </Project>

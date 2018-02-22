@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Autofac;
+using BatchHost.BatchApp.Jobs.Sample;
+using BatchHost.BatchApp.Services;
 using Hangfire;
 using Hangfire.Redis;
 using Serilog;
@@ -13,28 +12,51 @@ namespace BatchHost.BatchApp
     {
         static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Information()
-                .WriteTo.File("log.txt")
-                .WriteTo.Console()
-                .CreateLogger();
+            ConfigureLogger();
+            ConfigureBatchStorage();
+            ConfigureBatchActivator();
 
-            GlobalConfiguration.Configuration.UseRedisStorage("localhost:6379", new RedisStorageOptions
-            {
-                Prefix = "WebApi:BatchStorage:"
-            });
-            using (var server = new BackgroundJobServer(new BackgroundJobServerOptions
-            {
-            }))
+            RunBatchServer();
+        }
+
+        private static void RunBatchServer()
+        {
+            using (new BackgroundJobServer())
             {
                 Console.WriteLine("Hangfire Server started. Press any key to exit...");
                 Console.ReadKey();
             }
         }
-    }
 
-    public class CustomBackgroundJobServer : BackgroundJobServer
-    {
-        
+        private static void ConfigureBatchStorage()
+        {
+            GlobalConfiguration.Configuration.UseRedisStorage("localhost:6379", new RedisStorageOptions
+            {
+                Prefix = "WebApi:BatchStorage:"
+            });
+        }
+
+        private static void ConfigureBatchActivator()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<UserContext>().AsImplementedInterfaces();
+
+
+            builder.RegisterType<SampleService>().AsImplementedInterfaces();
+
+
+            builder.RegisterType<SampleJob>().AsImplementedInterfaces();
+
+            GlobalConfiguration.Configuration.UseAutofacActivator(builder.Build());
+        }
+
+        private static void ConfigureLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.File("servicelog.txt")
+                .WriteTo.Console()
+                .CreateLogger();
+        }
     }
 }

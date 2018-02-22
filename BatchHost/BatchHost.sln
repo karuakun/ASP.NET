@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchHost.WebApp", "BatchHost.WebApp\BatchHost.WebApp.csproj", "{B7D5C7E9-44A9-4C91-B63F-52E5C1EFCC6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatchHost.WebApp", "BatchHost.WebApp\BatchHost.WebApp.csproj", "{B7D5C7E9-44A9-4C91-B63F-52E5C1EFCC6A}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7087D8CA-3E55-4A90-963F-4FEF2E8CA016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchHost.Service", "BatchHost.Service\BatchHost.Service.csproj", "{67D2EEEC-BFDE-4F06-85AE-C1978EFA6078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BatchHost.BatchInterface", "BatchHost.Service\BatchHost.BatchInterface.csproj", "{67D2EEEC-BFDE-4F06-85AE-C1978EFA6078}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchHost.BatchApp", "BatchHost.BatchApp\BatchHost.BatchApp.csproj", "{D0E64BE6-62F7-40BF-BB91-19BF42EC9632}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchHost.BatchAppCore", "BatchHost.BatchAppCore\BatchHost.BatchAppCore.csproj", "{657EF817-D6E4-4B0B-B266-68C1B9C91144}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchHost.BatchInterface.Tests", "..\BatchHost.BatchInterface.Tests\BatchHost.BatchInterface.Tests.csproj", "{852FAA11-A39F-4C4C-8FC2-EF6C23D2E644}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{D0E64BE6-62F7-40BF-BB91-19BF42EC9632}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0E64BE6-62F7-40BF-BB91-19BF42EC9632}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0E64BE6-62F7-40BF-BB91-19BF42EC9632}.Release|Any CPU.Build.0 = Release|Any CPU
-		{657EF817-D6E4-4B0B-B266-68C1B9C91144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{657EF817-D6E4-4B0B-B266-68C1B9C91144}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{657EF817-D6E4-4B0B-B266-68C1B9C91144}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{657EF817-D6E4-4B0B-B266-68C1B9C91144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852FAA11-A39F-4C4C-8FC2-EF6C23D2E644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852FAA11-A39F-4C4C-8FC2-EF6C23D2E644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852FAA11-A39F-4C4C-8FC2-EF6C23D2E644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852FAA11-A39F-4C4C-8FC2-EF6C23D2E644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
