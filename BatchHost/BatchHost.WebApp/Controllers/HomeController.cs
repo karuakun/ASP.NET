@@ -17,7 +17,7 @@ namespace BatchHost.WebApp.Controllers
         public async Task<IActionResult> About()
         {
 
-            var jobId = BackgroundJob.Enqueue<ISampleJob>(job => job.Execute(new SampleParameter { }));
+            var jobId = BatchInterface.BackgroundJob.Enqueue<ISampleJob>(job => job.Execute(new SampleParameter { }));
             var awaiter = new BatchJobMonitor();
             var data = await awaiter.WaitForExit<SampleResponse>(jobId);
 

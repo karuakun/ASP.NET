@@ -15,7 +15,6 @@ namespace BatchHost.BatchApp.Jobs.Sample
 
         public override SampleResponse OnExecute(SampleParameter param)
         {
-            
             return new SampleResponse
             {
                 EndTime = new DateTime(),

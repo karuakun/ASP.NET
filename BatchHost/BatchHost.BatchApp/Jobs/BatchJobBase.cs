@@ -18,7 +18,6 @@ namespace BatchHost.BatchApp.Jobs
 
         public virtual TResponse Execute(TParameter param)
         {
-            
             try
             {
                 Log.Logger.Information($"START:{DateTime.Now:yyyy-MM-dd hh:mm:ss.fff}");
